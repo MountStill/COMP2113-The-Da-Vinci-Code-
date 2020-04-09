@@ -4,7 +4,7 @@ Course Project(2019-20) of COMP2113 at HKU
 ## Identification of the team members:
 * Group77
 * MountStill: Jiang Zhaochen 3035535042 zcjiang@connect.hku.hk
-* SiannaZhu: Zhu Yanan
+* SiannaZhu: Zhu Yanan 3035535133 zhuyanan@connect.hku.hk
 
 ## Game description with basic game rules:
 
