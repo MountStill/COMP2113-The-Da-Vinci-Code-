@@ -10,6 +10,8 @@ Course Project(2019-20) of COMP2113 at HKU
 
 ## List of features/functions:
 1. Generation of random game sets or events
+   - deal():The player and the computer each gain 4 random cards 
+   - complay(int pro):The computer have the probability of pro to give the right answer
 
 2. Data structures for storing game status
 
