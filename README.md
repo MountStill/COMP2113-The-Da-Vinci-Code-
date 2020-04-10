@@ -14,9 +14,14 @@ Course Project(2019-20) of COMP2113 at HKU
    - complay(int pro):The computer have the probability of pro to give the right answer
 
 2. Data structures for storing game status
+   - class card:using class to store the condition of each card
 
 3. Dynamic memory management
 
 4. File input/output (e.g., for loading/saving game status)
+   - progress.txt:output the rate of progress of the game and the data of each cards and input it when the game starts again
 
 5. Program codes in multiple files
+   - main.cpp:writing the main program
+   - card.h:class interface
+   - card.cpp:class implementation
