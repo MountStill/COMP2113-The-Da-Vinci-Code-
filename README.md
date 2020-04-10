@@ -7,7 +7,7 @@ Course Project(2019-20) of COMP2113 at HKU
 * SiannaZhu: Zhu Yanan 3035535133 zhuyanan@connect.hku.hk
 
 ## Game description with basic game rules:
-
+   - We are going to write a game named The Da Vinci Code. In this game,there are 24 cards, 12 black and 12 white with numbers from 0 to 11.Each person starts with four cards sorted numerically(when two cards have the same number, the black one is considered smaller), but the numbers are only visible to himself.The player will take turns to grab a new card and guess the number of the other player. If he guesses right,his opponent should show the position of the card and he can choose to guess another number or stop temporarily. If his answer is wrong, he should put the card he grabs faced up and back into his line according to the previous rule. Whoever shows all the numbers of his cards will lose the game.
 ## List of features/functions:
 1. Generation of random game sets or events
    - deal():The player and the computer each gain 4 random cards 
