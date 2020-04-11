@@ -23,7 +23,7 @@ Course Project(2019-20) of COMP2113 at HKU
    - int \*position: temporarily storing the card position to be guessed.
    - int \*number: temporarily storing the card number to be guessed.
    - bool \*judge: temporarily storing outcome of a guess.
-   All the above dynamic variables will be cleaned at the end of each guess turn.
+   - All the above dynamic variables will be cleaned at the end of each guess turn.
    
 4. File input/output (e.g., for loading/saving game status)
    - initiator.txt: input the game mode and the difficulty settings.
