@@ -11,13 +11,14 @@ Course Project(2019-20) of COMP2113 at HKU
    
 ## List of features/functions:
 1. Generation of random game sets or events
-   - deal(): The player and the computer each gain four random cards at first.
-   - difficulty(string level): The computer have different levels of ability to guess the right answer.
+   - Deal(): The player and the computer each gain four random cards at first.
+   - SetDifficulty(string level): The computer have different levels of ability to guess the right answer.
 
 2. Data structures for storing game status
-   - struct player: using string to store each player's name, and using class cardset to store the condition of each player's card set.
-   - class cardset: contained in the struct above.
-   - class cardpool: using class to store the remaining cards in the pool.
+   - struct Player: using string to store each player's name, and containing CardSet.
+   - class CardPool: using class to store the remaining cards in the pool.
+   - class CardSet: using class to store the condition of each player's card set, and containing Card.
+   - struct Card: using string to store the value and color of one card, and using bool to store whether the card can be seen by the opponent.
 
 3. Dynamic memory management
    - int \*position: temporarily storing the card position to be guessed.
@@ -26,13 +27,13 @@ Course Project(2019-20) of COMP2113 at HKU
    - All the above dynamic variables will be cleaned at the end of each guess turn.
    
 4. File input/output (e.g., for loading/saving game status)
-   - initiator.txt: input the game mode and the difficulty settings.
-   - progress.txt: output the rate of progress of the game and the condition of each card if the game is paused and input it when the game starts again.
-   - summary.txt: output the summary results of each player in the game, including win rate, performance in each turn, etc.
+   - Initiator.txt: input the game mode and the difficulty settings.
+   - Progress.txt: output the rate of progress of the game and the condition of each card if the game is paused and input it when the game starts again.
+   - Summary.txt: output the summary results of each player in the game, including win rate, performance in each turn, etc.
 
 5. Program codes in multiple files
    - main.cpp: writing the main program.
-   - cardset.h: class cardset interface.
-   - cardset.cpp: class cardset implementation.
-   - cardpool.h: class cardpool interface.
-   - cardpool.cpp: class cardpool implementation.
+   - CardSet.h: class cardset interface.
+   - CardSet.cpp: class cardset implementation.
+   - CardPool.h: class cardpool interface.
+   - CardPool.cpp: class cardpool implementation.
