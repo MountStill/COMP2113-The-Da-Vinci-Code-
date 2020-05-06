@@ -8,7 +8,7 @@ using namespace std;
 
 struct Player
 {
-	string palyername;
+	string playername;
 	CardSet cardset;
 };
 
@@ -30,7 +30,7 @@ int main()
 	CardPool cardpool;   
 	Player p[2];
 	int turn=1;
-	p[1].palyername="Computer"；
+	p[1].playername="Computer"；
 	new_or_continue(command,cardpool,prob_comp,p,turn);
 	while(command != "pause" & gameover(p)==0)
 	{
@@ -86,7 +86,7 @@ void new_or_continue(string &command,CardPool &cardpool,double &prob_comp,Player
 		for (int i=0;i<4;i++)
 			p[1].cardset.Append(cardpool.Pick());
 		cout << "Please input your name."<<endl;
-		cin >> p[0].palyername;
+		cin >> p[0].playername;
 	}
 	else if (command=="n")
 		load_game_process(cardpool,prob_comp,p,turn);
