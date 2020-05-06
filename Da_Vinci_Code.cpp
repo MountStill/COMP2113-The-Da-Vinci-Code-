@@ -12,18 +12,24 @@ struct Player
 	CardSet cardset;
 };
 
+void new_or_continue(string &command,CardPool &cardpool,double &prob_comp,Player p[],int &turn);
+//choose to start a new game or continue the last game and finish the settings
 void SetDifficulty(double &prob_comp);
+//choose the game difficulty
+void load_game_process(Player p[],CardPool &cardpool,int &turn);
+//input the progress of the last game
 
 
 int main()
 {
+	string command;
 	double prob_comp;
-	SetDifficulty(prob_comp);
 	CardPool cardpool;   
-	cardpool.Initialize();
-
-
-
+	Player p[2];
+	int turn=1;
+	p[1].palyername="Computer"；
+	new_or_continue(command,cardpool,prob_comp,p[],turn);
+	gameplay()
 }
 
 
@@ -53,3 +59,31 @@ void SetDifficulty(double &prob_comp)
 		prob_comp = 1.0;
 	}
 }
+
+void new_or_continue(string &command,CardPool &cardpool,double &prob_comp,Player p[],int &turn)
+{
+	cout<< "Start a new game?(y/n)"<<endl;
+	cin >> command;
+	while (command != "y" || command != "n")
+	{
+		cout<< "Please input \"y\"/\"n\"! "<<endl;
+		cin >> command;
+	}
+	if (command=="y")
+	{
+		SetDifficulty(prob_comp);
+		cardpool.Initialize();
+		p[0].cardset.Initialize();
+		p[1].cardset.Initialize();
+		for (int i=0;i<4;i++)
+			p[0].cardset.Append(cardpool.Pick());
+		for (int i=0;i<4;i++)
+			p[1].cardset.Append(cardpool.Pick());
+		cout << "Please input your name."<<endl;
+		cin >> p[0].palyername;
+	}
+	else if (command=="n")
+		load_game_process(p,cardpool,turn);
+}
+
+void load_game_process(Player p[],CardPool &cardpool,int &turn)
