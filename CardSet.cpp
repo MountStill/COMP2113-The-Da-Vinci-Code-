@@ -54,3 +54,23 @@ void CardSet::TurnOver(int position)
 {
 	cardset[position].card_hidden = 0;
 }
+
+bool CardSet::Judge_game_over()
+{
+	int num=0;
+	for (int i = 0; i < cardset.size(); i++)
+	{
+		if (cardset[i].card_hidden == 1)
+		{
+			num += 1;
+		}
+	}
+	if (num ==0 )
+	{
+		return 1;
+	}
+	else
+	{
+		return 0;
+	}
+}
