@@ -36,6 +36,9 @@ int main()
 	int turn=1;
 	p[1].playername="Computer"；
 	new_or_continue(command,cardpool,prob_comp,p,turn);
+	cout << p[0].playername << " " << p[0].cardset.Display()<<endl;
+	cout << p[0].playername << " " << p[0].cardset.Display_mycard()<<endl;
+	cout << p[1].playername << " " << p[1].cardset.Display()<<endl;
 	while(command != "pause" & gameover(p)==0)
 	{
 		gameplay(command,cardpool,prob_comp,p,turn);
@@ -153,3 +156,41 @@ void output_game_progress(CardPool &cardpool,double &prob_comp,Player p[],int &t
 	progress.close();
 }
 
+void gameplay(string &command,CardPool &cardpool,double &prob_comp,Player p[],int &turn){
+	string newcard,choice="Continue";
+	newcard = cardpool.Pick();
+	int position;
+	if (turn%2==1){
+		cout << newcard <<endl;
+		p[0].cardset.Append(newcard);
+		while (choice=="Continue")
+		{
+			cout << "PLease have a guess." <<endl;
+			cin >> command;
+			position=p[1].cardset.Find(command)
+			if (position!=-1)
+			{
+				p[1].cardset.TurnOver(position);
+				cout << p[0].playername << " " << p[0].cardset.Display()<<endl;
+				cout << p[0].playername << " " << p[0].cardset.Display_mycard()<<endl;
+				cout << p[1].playername << " " << p[1].cardset.Display()<<endl;
+				cout <<"Continue guess nor not?(Continue/Stop)"<<endl;
+				cin >> command;
+				choice = command;
+			}
+			else
+			{
+				position = p[0].cardset.Find(newcard);
+				p[0].cardset.TurnOver(position);
+				cout << p[0].playername << " " << p[0].cardset.Display()<<endl;
+				cout << p[0].playername << " " << p[0].cardset.Display_mycard()<<endl;
+				cout << p[1].playername << " " << p[1].cardset.Display()<<endl;
+				choice = "Stop";
+			}
+		}
+	}
+	else
+	{
+	}
+	turn += 1;
+}
