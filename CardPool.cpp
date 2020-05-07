@@ -3,6 +3,7 @@
 #include <string>
 #include <cstdlib>
 #include <ctime>
+#include <sstream>
 using namespace std;
 
 
@@ -22,4 +23,25 @@ string CardPool::Pick()
 	string pickcard = cardpool[pickorder];
 	cardpool.erase(cardpool.begin() + pickorder);
 	return pickcard;
+}
+
+string CardPool::Archive()
+{
+	string archive;
+	for (int i = 0; i < cardpool.size(); i++)
+	{
+		archive += (cardpool[i] + " ");
+	}
+	return archive;
+}
+
+void CardPool::Input(string s)
+{
+	istringstream iss(s);
+	string card;
+	cardpool.clear();
+	while (iss>> card)
+	{
+		cardpool.push_back(card);
+	}
 }
