@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <sstream>
 using namespace std;
 
 bool cmp(Card &x, Card &y)
@@ -72,5 +73,31 @@ bool CardSet::Judge_game_over()
 	else
 	{
 		return 0;
+	}
+}
+
+string CardSet::Archive()
+{
+	string archive;
+	for (int i = 0; i < cardset.size(); i++)
+	{
+		archive += (cardset[i].card + " ");
+		archive += (cardset[i].card_hidden + " ");
+	}
+	return archive;
+}
+
+
+
+void CardSet::Input(string s)
+{
+	istringstream iss(s);
+	string number;
+	int hidden;
+	cardset.clear();
+	while (iss >> number)
+	{
+		iss >> hidden
+		cardset.push_back({number, hidden });
 	}
 }
