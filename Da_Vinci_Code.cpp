@@ -40,6 +40,14 @@ int main()
 	{
 		gameplay(command,cardpool,prob_comp,p,turn);
 	}
+	if (command == "pause")
+	{
+		output_game_progress(cardpool,prob_comp,p,turn);
+	}
+	else if (gameover(p)==1)
+	{
+		output_summary(p);
+	}
 }
 
 
@@ -104,7 +112,24 @@ void new_or_continue(string &command,CardPool &cardpool,double &prob_comp,Player
 }
 
 void load_game_process(CardPool &cardpool,double &prob_comp,Player p[],int &turn)
-void gameplay(string &command,CardPool &cardpool,double &prob_comp,Player p[],int &turn){
+{
+	ifstream progress;
+	progress.open("Progress.txt");
+	string s;
+	getline(progress,s);
+	cardpool.Input(s);
+	progress >> prob_comp;
+	progress >> p[0].playername;
+	getline(progress,s);
+	p[0].cardset.Input(s);
+	progress >> p[1].playername;
+	getline(progress,s);
+	p[1].cardset.Input(s);
+	progress >> turn;
+}
+
+void gameplay(string &command,CardPool &cardpool,double &prob_comp,Player p[],int &turn)
+{
 
 }
 
@@ -119,4 +144,17 @@ bool gameover(Player p[]){
 	}
 }
 
+void output_game_progress(CardPool &cardpool,double &prob_comp,Player p[],int &turn)
+{
+	ofstream progress;
+	progress.open("Progress.txt");
+	progress<<cardpool.Archive()<<endl;
+	progress<<prob_comp<<endl;
+	progress<<p[0].playername<<endl;
+	progress<<p[0].cardset.Archive()<<endl;
+	progress<<p[1].playername<<endl;
+	progress<<p[1].cardset.Archive()<<endl;
+	progress<<turn<<endl;
+	progress.close();
+}
 
