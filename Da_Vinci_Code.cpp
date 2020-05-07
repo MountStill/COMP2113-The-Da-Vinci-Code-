@@ -22,11 +22,15 @@ void gameplay(string &command,CardPool &cardpool,double &prob_comp,Player p[],in
 //gameplaying
 bool gameover(Player p[]);
 //Judge whether one of the player's card are all turned over
+void output_game_progress(CardPool &cardpool,double &prob_comp,Player p[],int &turn);
+//output the progress into Progress.txt when the game is paused
+void output_summary(Player p[]);
+//output the summary results of each player in the game.
 
 int main()
 {
 	string command;
-	double prob_comp;
+	double prob_comp=0;
 	CardPool cardpool;   
 	Player p[2];
 	int turn=1;
@@ -42,27 +46,34 @@ int main()
 void SetDifficulty(double &prob_comp)
 {
 	string difficulty_level;
-	ifstream initiator("Initiator.txt");
-	initiator >> difficulty_level;
-	if (difficulty_level == "EASY")
+	cout << "Please choose the difficulty level.(EASY/NORMAL/HARD/EXPERT/HELL)"<<endl;
+	cin >> difficulty_level;
+	while (prob_comp = 0)
 	{
-		prob_comp = 0.1;
-	}
-	else if (difficulty_level == "NORMAL")
-	{
-		prob_comp = 0.3;
-	}
-	else if (difficulty_level == "HARD")
-	{
-		prob_comp = 0.5;
-	}
-	else if (difficulty_level == "EXPERT")
-	{
-		prob_comp = 0.8;
-	}
-	else if (difficulty_level == "HELL")
-	{
-		prob_comp = 1.0;
+		if (difficulty_level == "EASY")
+		{
+			prob_comp = 0.1;
+		}
+		else if (difficulty_level == "NORMAL")
+		{
+			prob_comp = 0.3;
+		}
+		else if (difficulty_level == "HARD")
+		{
+			prob_comp = 0.5;
+		}
+		else if (difficulty_level == "EXPERT")
+		{
+			prob_comp = 0.8;
+		}
+		else if (difficulty_level == "HELL")
+		{
+			prob_comp = 1.0;
+		}
+		else
+		{
+			cout << "Please input \"EASY\"/\"NORMAL\"/\"HARD\"/\"EXPERT\"/\"HELL\"! "<<endl;
+		}
 	}
 }
 
@@ -107,3 +118,5 @@ bool gameover(Player p[]){
 		return 0;
 	}
 }
+
+
