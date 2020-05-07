@@ -128,11 +128,6 @@ void load_game_process(CardPool &cardpool,double &prob_comp,Player p[],int &turn
 	progress >> turn;
 }
 
-void gameplay(string &command,CardPool &cardpool,double &prob_comp,Player p[],int &turn)
-{
-
-}
-
 bool gameover(Player p[]){
 	if (p[0].cardset.Judge_game_over()=1 || p[1].cardset.Judge_game_over()=1)
 	{
