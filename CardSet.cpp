@@ -101,3 +101,27 @@ void CardSet::Input(string s)
 		cardset.push_back({number, hidden });
 	}
 }
+
+
+string CardSet::Display_mycard()
+{
+	string display;
+	for (int i = 0; i < cardset.size(); i++)
+	{
+		display += (cardset[i].card + " ");
+	}
+	return display;
+}
+
+int CardSet::Find(string card)
+{
+	int pos=-1;
+	for (int i = 0; i < cardset.size(); i++)
+	{
+		if (CardSet::Judge(i,card)==1)
+		{
+			pos=i;
+		}
+	}
+	return pos;
+}
