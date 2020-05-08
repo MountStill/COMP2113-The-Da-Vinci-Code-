@@ -5,7 +5,7 @@
 #include <sstream>
 using namespace std;
 
-bool cmp(Card &x, Card &y)
+bool cmp(Card& x, Card& y)
 {
 	return x.card < y.card;
 }
@@ -15,9 +15,22 @@ void CardSet::Initialize()
 	cardset.clear();
 }
 
-void CardSet::Append(string card)
+int CardSet::HiddenNum()
 {
-	cardset.push_back({card, 1});
+	int num = 0;
+	for (int i = 0; i < cardset.size(); i++)
+	{
+		if (cardset[i].card_hidden == 1)
+		{
+			num += 1;
+		}
+	}
+	return num;
+}
+
+void CardSet::Append(string card, bool hidden)
+{
+	cardset.push_back({ card, hidden });
 	sort(cardset.begin(), cardset.end(), cmp);
 }
 
@@ -38,9 +51,18 @@ string CardSet::Display()
 	return display;
 }
 
+string CardSet::SecretDisplay()
+{
+	string display;
+	for (int i = 0; i < cardset.size(); i++)
+	{
+		display += (cardset[i].card + " ");
+	}
+	return display;
+}
+
 bool CardSet::Judge(int position, string card)
 {
-	bool judge;
 	if (cardset[position].card == card)
 	{
 		return 1;
@@ -56,9 +78,21 @@ void CardSet::TurnOver(int position)
 	cardset[position].card_hidden = 0;
 }
 
-bool CardSet::Judge_game_over()
+void CardSet::ForcedTurnOver()
 {
-	int num=0;
+	for (int i = 0; i < cardset.size(); i++)
+	{
+		if (cardset[i].card_hidden == 1)
+		{
+			cardset[i].card_hidden = 0;
+			break;
+		}
+	}
+}
+
+bool CardSet::NoHidden()
+{
+	int num = 0;
 	for (int i = 0; i < cardset.size(); i++)
 	{
 		if (cardset[i].card_hidden == 1)
@@ -66,7 +100,7 @@ bool CardSet::Judge_game_over()
 			num += 1;
 		}
 	}
-	if (num ==0 )
+	if (num == 0)
 	{
 		return 1;
 	}
@@ -89,39 +123,15 @@ string CardSet::Archive()
 
 
 
-void CardSet::Input(string s)
+void CardSet::Load(string s)
 {
 	istringstream iss(s);
 	string number;
-	int hidden;
+	bool hidden;
 	cardset.clear();
 	while (iss >> number)
 	{
-		iss >> hidden
-		cardset.push_back({number, hidden });
+		iss >> hidden;
+		cardset.push_back({ number, hidden });
 	}
-}
-
-
-string CardSet::Display_mycard()
-{
-	string display;
-	for (int i = 0; i < cardset.size(); i++)
-	{
-		display += (cardset[i].card + " ");
-	}
-	return display;
-}
-
-int CardSet::Find(string card)
-{
-	int pos=-1;
-	for (int i = 0; i < cardset.size(); i++)
-	{
-		if (CardSet::Judge(i,card)==1)
-		{
-			pos=i;
-		}
-	}
-	return pos;
 }
