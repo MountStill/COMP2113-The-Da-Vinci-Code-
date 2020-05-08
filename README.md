@@ -11,7 +11,7 @@ Course Project(2019-20) of COMP2113 at HKU
    
 ## List of features/functions:
 1. Generation of random game sets or events
-   - Deal(): The player and the computer each gain four random cards at first.
+   - CardPool::Pick(): Pick a random card from the cardpool.(Also used when the player and the computer each gain four random cards at first.)
    - SetDifficulty(string level): The computer have different levels of ability to guess the right answer.
 
 2. Data structures for storing game status
@@ -21,13 +21,14 @@ Course Project(2019-20) of COMP2113 at HKU
    - struct Card: using string to store the value and color of one card, and using bool to store whether the card can be seen by the opponent.
 
 3. Dynamic memory management
+   - std::vector<std::string> cardpool: using vector to store the remaining cards in the pool as a private member of class CardPool.
+   - std::vector<Card> cardset: using vector to store the player's card set as a private member of class CardSet.
    - int \*position: temporarily storing the card position to be guessed.
    - int \*number: temporarily storing the card number to be guessed.
    - bool \*judge: temporarily storing outcome of a guess.
    - All the above dynamic variables will be cleaned at the end of each guess turn.
    
 4. File input/output (e.g., for loading/saving game status)
-   - Initiator.txt: input the game mode and the difficulty settings.
    - Progress.txt: output the rate of progress of the game and the condition of each card if the game is paused and input it when the game starts again.
    - Summary.txt: output the summary results of each player in the game, including win rate, performance in each turn, etc.
 
