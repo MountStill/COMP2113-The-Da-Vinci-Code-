@@ -15,6 +15,11 @@ void CardSet::Initialize()
 	cardset.clear();
 }
 
+int CardSet::Num()
+{
+	return cardset.size();
+}
+
 int CardSet::HiddenNum()
 {
 	int num = 0;
@@ -63,7 +68,7 @@ string CardSet::SecretDisplay()
 
 bool CardSet::Judge(int position, string card)
 {
-	if (cardset[position].card == card)
+	if (cardset[position].card == card && cardset[position].card_hidden)
 	{
 		return 1;
 	}
