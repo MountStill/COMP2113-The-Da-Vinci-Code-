@@ -12,7 +12,7 @@ Course Project(2019-20) of COMP2113 at HKU
 ## List of features/functions:
 1. Generation of random game sets or events
    - CardPool::Pick(): Pick a random card from the cardpool.(Also used when the player and the computer each gain four random cards at first.)
-   - SetDifficulty(string level): The computer have different levels of ability to guess the right answer.
+   - Gameplay(): When it is the computer's turn,the computer has different levels of possibility to guess the right answer.
 
 2. Data structures for storing game status
    - struct Player: using string to store each player's name, and containing CardSet.
@@ -38,3 +38,10 @@ Course Project(2019-20) of COMP2113 at HKU
    - CardSet.cpp: class cardset implementation.
    - CardPool.h: class cardpool interface.
    - CardPool.cpp: class cardpool implementation.
+
+## Compilation and execution instructions:
+1. g++ -pedantic-errors -std=c++11 main.cpp CardPool.cpp CardSet.cpp -o main
+
+2. ./main
+
+3. Follow the instruction printed on the screen to input your choice.
