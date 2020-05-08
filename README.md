@@ -40,8 +40,11 @@ Course Project(2019-20) of COMP2113 at HKU
    - CardPool.cpp: class cardpool implementation.
 
 ## Compilation and execution instructions:
-1. g++ -pedantic-errors -std=c++11 main.cpp CardPool.cpp CardSet.cpp -o main
+1. Download all files (Including "Introduction.txt").
 
-2. ./main
+2. Two methods to run the program (Make sure the "Introduction.txt" is under the same path).
+- g++ -pedantic-errors -std=c++11 main.cpp CardPool.cpp CardSet.cpp -o main
+- ./main
+- OR simply run the "Da Vinci Code.exe"
 
 3. Follow the instruction printed on the screen to input your choice.
