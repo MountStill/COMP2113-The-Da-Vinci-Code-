@@ -13,6 +13,7 @@ class CardSet
 {
 public:
 	void Initialize();
+	int Num();
 	int HiddenNum();
 	void Append(std::string, bool);
 	std::string Display();
