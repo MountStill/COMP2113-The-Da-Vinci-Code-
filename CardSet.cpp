@@ -116,7 +116,7 @@ string CardSet::Archive()
 	for (int i = 0; i < cardset.size(); i++)
 	{
 		archive += (cardset[i].card + " ");
-		archive += (cardset[i].card_hidden + " ");
+		archive += (to_string(cardset[i].card_hidden) + " ");
 	}
 	return archive;
 }
