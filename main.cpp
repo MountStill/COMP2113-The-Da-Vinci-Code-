@@ -145,14 +145,16 @@ void LoadGameProgress(CardPool& cardpool, double& prob_comp, Player p[], int& tu
 	string s;
 	getline(progress, s);
 	cardpool.Load(s);
-	progress >> prob_comp;
-	progress >> p[0].playername;
 	getline(progress, s);
+	prob_comp= stoi(s);
+	getline(progress,p[0].playername);
+	getline(progress,s);
 	p[0].cardset.Load(s);
-	progress >> p[1].playername;
-	getline(progress, s);
+	getline(progress,p[1].playername);
+	getline(progress,s);
 	p[1].cardset.Load(s);
-	progress >> turn;
+	getline(progress, s);
+	turn= stoi(s);
 }
 
 bool GameOver(Player p[], CardPool cardpool) {
