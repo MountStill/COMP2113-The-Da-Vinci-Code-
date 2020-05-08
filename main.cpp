@@ -126,7 +126,7 @@ void SetDifficulty(double& probcomp)
 void NewOrLoadGame(CardPool& cardpool, double& prob_comp, Player p[], int& turn)
 {
 	string command;
-	cout << "Start a new game? (Y/N) Please input \"Y\" if you do not have an progress archive." << endl;
+	cout << "Start a new game? (Y/N) Please input \"Y\" if you do not have a progress archive." << endl;
 	cin >> command;
 	while (command != "Y" && command != "N")
 	{
