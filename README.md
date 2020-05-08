@@ -23,8 +23,8 @@ Course Project(2019-20) of COMP2113 at HKU
 3. Dynamic memory management
    - vector\<string\> cardpool: using vector to store the remaining cards in the pool as a private member of class CardPool.
    - vector\<Card\> cardset: using vector to store the player's card set as a private member of class CardSet.
-   - int \*position: temporarily storing the card position to be guessed.
-   - int \*number: temporarily storing the card number to be guessed.
+   - int \*guessposition: temporarily storing the card position to be guessed. (in the function GamePlay)
+   - int \*guesscard: temporarily storing the card number and color to be guessed. (in the function GamePlay)
    - bool \*judge: temporarily storing outcome of a guess.
    - All the above dynamic variables will be cleaned at the end of each guess turn.
    
