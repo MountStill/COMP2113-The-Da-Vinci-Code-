@@ -1,5 +1,5 @@
 
-+++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++
 
 Introduction:
 
@@ -10,19 +10,25 @@ The players will take turns to draw a new card and guess the number of any one c
 If he guesses right, his opponent should show the card and he can choose to guess another card or stop temporarily.
 If his answer is wrong, he should put the card he draws faced up and back into his line according to the previous rule.
 Whoever makes the opponent show all his cards wins the game.
-Sometimes, all of the cards are drawn before one player showing all his cards.
+Sometimes, all of the cards are drawn before any one player showing all his cards.
 Under this special circumstance, whoever owns more cards hidden wins the game.
 
 You can refer to the following link to investigate the rules whenever you get doubts:
 https://world-of-board-games.com.sg/docs/Da-Vinci-Code.pdf
 
-+++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++
 
 The game is made by Jiang Zhaochen and Zhu Yanan.
 As their group project of COMP 2113 at The University of Hong Kong.
 
-+++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++
+
+You can stop at each turn to have a rest by choosing not to continue the game. 
+We will keep the progress archive for you to load at next time.
+
+++++++++++++++++++++++++++++++
 
 Wish you could enjoy the game~
 
-+++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++
+
