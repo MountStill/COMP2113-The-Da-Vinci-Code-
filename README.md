@@ -21,8 +21,8 @@ Course Project(2019-20) of COMP2113 at HKU
    - struct Card: using string to store the value and color of one card, and using bool to store whether the card can be seen by the opponent.
 
 3. Dynamic memory management
-   - std::vector<std::string> cardpool: using vector to store the remaining cards in the pool as a private member of class CardPool.
-   - std::vector<Card> cardset: using vector to store the player's card set as a private member of class CardSet.
+   - vector\<string\> cardpool: using vector to store the remaining cards in the pool as a private member of class CardPool.
+   - vector\<Card\> cardset: using vector to store the player's card set as a private member of class CardSet.
    - int \*position: temporarily storing the card position to be guessed.
    - int \*number: temporarily storing the card number to be guessed.
    - bool \*judge: temporarily storing outcome of a guess.
