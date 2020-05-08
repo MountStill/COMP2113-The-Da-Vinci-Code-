@@ -38,11 +38,11 @@ int main()
 	string command;
 	p[1].playername = "Computer";
 	NewOrLoadGame(cardpool, probcomp, p, turn);
+	cout << setw(8) << p[0].playername << ": " << p[0].cardset.Display() << endl;
+	cout << setw(8) << p[0].playername << ": " << p[0].cardset.SecretDisplay() << endl;
+	cout << setw(8) << p[1].playername << ": " << p[1].cardset.Display() << endl;
 	while (1)
 	{
-		cout << setw(8) << p[0].playername << ": " << p[0].cardset.Display() << endl;
-		cout << setw(8) << p[0].playername << ": " << p[0].cardset.SecretDisplay() << endl;
-		cout << setw(8) << p[1].playername << ": " << p[1].cardset.Display() << endl;
 		cout << "This is turn " << turn << "." << endl;
 		cout << "Continue the game? (Y/N)" << endl;
 		cin >> command;
