@@ -13,10 +13,17 @@ class CardSet
 {
 public:
 	void Initialize();
-	void Append(std::string);
+	int HiddenNum();
+	void Append(std::string, bool);
 	std::string Display();
+	std::string SecretDisplay();
 	bool Judge(int, std::string);
 	void TurnOver(int);
+	void ForcedTurnOver();
+	bool NoHidden();
+	std::string Archive();
+	void Load(std::string);
+	
 private:
 	std::vector<Card> cardset;
 };
