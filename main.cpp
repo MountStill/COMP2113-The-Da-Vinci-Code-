@@ -77,6 +77,10 @@ void SetDifficulty(double& probcomp)
 	string difficulty_level;
 	cout << "Please choose the difficulty level. (EASY/NORMAL/HARD/EXPERT/HELL)" << endl;
 	cin >> difficulty_level;
+	while (difficulty_level != "EASY" && difficulty_level != "NORMAL" && difficulty_level != "HARD" && difficulty_level != "EXPERT" && difficulty_level != "HELL" )
+	{
+		cout << "Please input \"EASY\"/\"NORMAL\"/\"HARD\"/\"EXPERT\"/\"HELL\"! " << endl;
+	}
 	if (difficulty_level == "EASY")
 	{
 		probcomp = 0.1;
@@ -96,10 +100,6 @@ void SetDifficulty(double& probcomp)
 	else if (difficulty_level == "HELL")
 	{
 		probcomp = 1.0;
-	}
-	else
-	{
-		cout << "Please input \"EASY\"/\"NORMAL\"/\"HARD\"/\"EXPERT\"/\"HELL\"! " << endl;
 	}
 }
 
