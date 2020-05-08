@@ -8,7 +8,11 @@ class CardPool
 {
 public:
 	void Initialize();
+	bool Empty();
 	std::string Pick();
+	std::string Archive();
+	void Load(std::string);
+	std::string Display();
 private:
 	std::vector<std::string> cardpool;
 };
