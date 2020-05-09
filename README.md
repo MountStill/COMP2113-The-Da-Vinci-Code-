@@ -42,9 +42,11 @@ Course Project(2019-20) of COMP2113 at HKU
 ## Compilation and execution instructions:
 1. Download all files (Including "Introduction.txt").
 
-2. Two methods to run the program (Make sure the "Introduction.txt" is under the same path).
+2. Three methods to run the program (Make sure the "Introduction.txt" is under the same path).
    - g++ -pedantic-errors -std=c++11 main.cpp CardPool.cpp CardSet.cpp -o main
    - ./main
    - OR simply run the "Da Vinci Code.exe"
+   - OR make main
+   -    make run
 
 3. Follow the instructions printed on the screen to input your choice.
