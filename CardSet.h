@@ -9,6 +9,7 @@ struct Card
 	bool card_hidden;
 };
 
+
 class CardSet
 {
 public:
