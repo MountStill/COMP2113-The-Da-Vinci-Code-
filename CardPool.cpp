@@ -58,12 +58,3 @@ void CardPool::Load(string s)
 	}
 }
 
-string CardPool::Display()
-{
-	string display;
-	for (int i = 0; i < cardpool.size(); i++)
-	{
-		display += (cardpool[i] + " ");
-	}
-	return display;
-}
