@@ -127,9 +127,9 @@ string CardSet::Archive()
 	return archive;
 }
 
-void CardSet::Load(string s)
+void CardSet::Load(string str)
 {
-	istringstream iss(s);
+	istringstream iss(str);
 	string number;
 	bool hidden;
 	cardset.clear();
