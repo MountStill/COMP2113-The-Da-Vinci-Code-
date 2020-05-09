@@ -313,6 +313,11 @@ void GamePlay(CardPool& cardpool, double& probcomp, Player p[], int& turn) {
 				cout << endl << "Your view of your cardset and the opponent's cardset:" << endl << endl;
 				cout << setw(8) << p[0].playername << ": " << p[0].cardset.SecretDisplay() << endl;
 				cout << setw(8) << p[1].playername << ": " << p[1].cardset.Display() << endl;
+				if (GameOver(p, cardpool))
+				{
+					OutputSummary(p, cardpool, turn);
+					exit(0);
+				}
 			}
 		}
 	}
@@ -328,11 +333,6 @@ void GamePlay(CardPool& cardpool, double& probcomp, Player p[], int& turn) {
 			cout << endl << "The third view of two players' cardsets:" << endl << endl;
 			cout << setw(8) << p[0].playername << ": " << p[0].cardset.Display() << endl;
 			cout << setw(8) << p[1].playername << ": " << p[1].cardset.Display() << endl;
-			if (GameOver(p, cardpool))
-			{
-				OutputSummary(p, cardpool, turn);
-				exit(0);
-			}
 		}
 		else
 		{
@@ -341,6 +341,11 @@ void GamePlay(CardPool& cardpool, double& probcomp, Player p[], int& turn) {
 			p[1].cardset.Append(newcard, 0);
 			cout << setw(8) << p[0].playername << ": " << p[0].cardset.Display() << endl;
 			cout << setw(8) << p[1].playername << ": " << p[1].cardset.Display() << endl;
+		}
+		if (GameOver(p, cardpool))
+		{
+			OutputSummary(p, cardpool, turn);
+			exit(0);
 		}
 	}
 	turn += 1;
