@@ -39,6 +39,7 @@ void GamePlay(CardPool& cardpool, double& prob_comp, Player p[], int& turn);
 // One turn of the gameplaying.
 // Its inputs are a class CardPool, a double, an array of Player and an integer. It has no output.
 
+
 int main()
 {
 	Introduction();
