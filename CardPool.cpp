@@ -47,9 +47,9 @@ string CardPool::Archive()
 	return archive;
 }
 
-void CardPool::Load(string s)
+void CardPool::Load(string str)
 {
-	istringstream iss(s);
+	istringstream iss(str);
 	string card;
 	cardpool.clear();
 	while (iss >> card)
