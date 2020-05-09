@@ -126,8 +126,6 @@ string CardSet::Archive()
 	return archive;
 }
 
-
-
 void CardSet::Load(string s)
 {
 	istringstream iss(s);
