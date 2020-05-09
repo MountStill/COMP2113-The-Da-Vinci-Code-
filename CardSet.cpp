@@ -10,6 +10,7 @@ bool cmp(Card& x, Card& y)
 	return x.card < y.card;
 }
 
+
 void CardSet::Initialize()
 {
 	cardset.clear();
