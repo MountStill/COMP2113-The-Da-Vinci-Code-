@@ -57,4 +57,3 @@ void CardPool::Load(string s)
 		cardpool.push_back(card);
 	}
 }
-
