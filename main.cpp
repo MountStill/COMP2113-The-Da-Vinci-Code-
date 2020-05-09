@@ -15,18 +15,18 @@ struct Player
 };
 
 void Introduction();
-//Open the file "Introduction.txt" and print the words in this file
-//input & output: none
-void NewOrLoadGame(CardPool& cardpool, double& prob_comp, Player p[], int& turn);
+// Open the file "Introduction.txt" and print the contents in this file.
+// The input & output: none.
+void NewOrLoadGame(CardPool& cardpool, double& probcomp, Player p[], int& turn);
 // Choose whether to start a new game or continue the last game at the beginning and finish the settings.
 // Its inputs are a class CardPool, a double, an array of Player and an integer. It has no output.
-void SetDifficulty(double& prob_comp);
-// Set the game difficulty. Players should input the difficulty level and the function will update the prob_comp.
-// The input is double prob_comp and there is no output.
-void LoadGameProgress(CardPool& cardpool, double& prob_comp, Player p[], int& turn);
+void SetDifficulty(double& probcomp);
+// Set the game difficulty. Players should input the difficulty level and the function will update the probcomp.
+// The input is double probcomp and there is no output.
+void LoadGameProgress(CardPool& cardpool, double& probcomp, Player p[], int& turn);
 // Open the file "Progress.txt" and load the progress to continue the last game. 
 // Its inputs are a class CardPool, a double, an array of Player and an integer. It has no output.
-void OutputGameProgress(CardPool& cardpool, double& prob_comp, Player p[], int& turn);
+void OutputGameProgress(CardPool& cardpool, double& probcomp, Player p[], int& turn);
 // Output the game progress to the file "Progress.txt" in order to store the settings when the game is paused. 
 // Its inputs are a class CardPool, a double, an array of Player and an integer. It has no output.
 void OutputSummary(Player p[], CardPool cardpool, int turn);
@@ -35,7 +35,7 @@ void OutputSummary(Player p[], CardPool cardpool, int turn);
 bool GameOver(Player p[], CardPool cardpool);
 // Judge whether the game is ended.
 // The inputs are the array of Player p and class CardPool cardpool,and the output is a boolean.
-void GamePlay(CardPool& cardpool, double& prob_comp, Player p[], int& turn);
+void GamePlay(CardPool& cardpool, double& probcomp, Player p[], int& turn);
 // One turn of the gameplaying.
 // Its inputs are a class CardPool, a double, an array of Player and an integer. It has no output.
 
@@ -93,7 +93,7 @@ void Introduction()
 	introduction.close();
 }
 
-void NewOrLoadGame(CardPool& cardpool, double& prob_comp, Player p[], int& turn)
+void NewOrLoadGame(CardPool& cardpool, double& probcomp, Player p[], int& turn)
 {
 	string command;
 	cout << "Start a new game? (Y/N) Please input \"Y\" if you do not have a progress archive." << endl;
@@ -108,7 +108,7 @@ void NewOrLoadGame(CardPool& cardpool, double& prob_comp, Player p[], int& turn)
 		cout << endl << "New game starts." << endl;
 		cout << endl << "Please enter your name. (No more than 8 characters.)" << endl;
 		cin >> p[0].playername;
-		SetDifficulty(prob_comp);
+		SetDifficulty(probcomp);
 		cardpool.Initialize();
 		p[0].cardset.Initialize();
 		p[1].cardset.Initialize();
@@ -123,7 +123,7 @@ void NewOrLoadGame(CardPool& cardpool, double& prob_comp, Player p[], int& turn)
 	}
 	else if (command == "N")
 	{
-		LoadGameProgress(cardpool, prob_comp, p, turn);
+		LoadGameProgress(cardpool, probcomp, p, turn);
 		cout << endl << "Last game is loaded." << endl;
 	}
 }
@@ -134,7 +134,7 @@ void SetDifficulty(double& probcomp)
 	cout << endl << "Please choose the difficulty level. (EASY/NORMAL/HARD/EXPERT/HELL)" << endl;
 	cin >> difficultylevel;
 	while (difficultylevel != "EASY" && difficultylevel != "NORMAL" && difficultylevel != "HARD" \
-	&& difficultylevel != "EXPERT" && difficultylevel != "HELL")
+		&& difficultylevel != "EXPERT" && difficultylevel != "HELL")
 	{
 		cout << "Please input \"EASY\"/\"NORMAL\"/\"HARD\"/\"EXPERT\"/\"HELL\"! " << endl;
 	}
@@ -160,7 +160,7 @@ void SetDifficulty(double& probcomp)
 	}
 }
 
-void LoadGameProgress(CardPool& cardpool, double& prob_comp, Player p[], int& turn)
+void LoadGameProgress(CardPool& cardpool, double& probcomp, Player p[], int& turn)
 {
 	ifstream progress;
 	progress.open("Progress.txt");
@@ -168,7 +168,7 @@ void LoadGameProgress(CardPool& cardpool, double& prob_comp, Player p[], int& tu
 	getline(progress, s);
 	cardpool.Load(s);
 	getline(progress, s);
-	prob_comp = stoi(s);
+	probcomp = stoi(s);
 	getline(progress, p[0].playername);
 	getline(progress, s);
 	p[0].cardset.Load(s);
@@ -255,7 +255,7 @@ bool GameOver(Player p[], CardPool cardpool) {
 	}
 }
 
-void GamePlay(CardPool& cardpool, double& prob_comp, Player p[], int& turn) {
+void GamePlay(CardPool& cardpool, double& probcomp, Player p[], int& turn) {
 	string newcard;
 	bool guesschance = 1;
 	newcard = cardpool.Pick();
@@ -320,7 +320,7 @@ void GamePlay(CardPool& cardpool, double& prob_comp, Player p[], int& turn) {
 	{
 		cout << endl << "Computer gets one card from the cardpool." << endl;
 		srand((unsigned int)(time(0)));
-		if ((rand() % 10 + 1) <= (prob_comp * 10))
+		if ((rand() % 10 + 1) <= (probcomp * 10))
 		{
 			cout << endl << "The computer's guess is correct." << endl;
 			p[0].cardset.ForcedTurnOver();
