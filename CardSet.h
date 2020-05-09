@@ -16,7 +16,7 @@ public:
 	void Initialize();
 // Clear the vector CardSet. There is no input and output.
 	int Num();
-// Show the size of vector cardset
+// Show the size of vector cardset.
 // There is no input and the output is an integer.
 	int HiddenNum();
 // Count the number of the cards hidden. 
