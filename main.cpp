@@ -15,20 +15,29 @@ struct Player
 };
 
 void Introduction();
+//Open the file "Introduction.txt" and print the words in this file
+//input & output: none
 void NewOrLoadGame(CardPool& cardpool, double& prob_comp, Player p[], int& turn);
-// choose to start a new game or continue the last game and finish the settings.
+// Choose whether to start a new game or continue the last game at the beginning and finish the settings.
+// Its inputs are a class CardPool, a double, an array of Player and an integer. It has no output.
 void SetDifficulty(double& prob_comp);
-// choose the game difficulty.
+// Set the game difficulty. Players should input the difficulty level and the function will update the prob_comp.
+// The input is double prob_comp and there is no output.
 void LoadGameProgress(CardPool& cardpool, double& prob_comp, Player p[], int& turn);
-// input the progress of the last game.
+// Open the file "Progress.txt" and load the progress to continue the last game. 
+// Its inputs are a class CardPool, a double, an array of Player and an integer. It has no output.
 void OutputGameProgress(CardPool& cardpool, double& prob_comp, Player p[], int& turn);
-// output the progress into Progress.txt when the game is paused.
+// Output the game progress to the file "Progress.txt" in order to store the settings when the game is paused. 
+// Its inputs are a class CardPool, a double, an array of Player and an integer. It has no output.
 void OutputSummary(Player p[], CardPool cardpool, int turn);
-// output the summary results of each player in the game.
+// Output the summary results of the player and the computer in the game.
+// Its inputs are a class CardPool,an array of Player and an integer. It has no output.
 bool GameOver(Player p[], CardPool cardpool);
-// judge whether the game is ended.
+// Judge whether the game is ended.
+// The inputs are the array of Player p and class CardPool cardpool,and the output is a boolean.
 void GamePlay(CardPool& cardpool, double& prob_comp, Player p[], int& turn);
-// gameplaying.
+// One turn of the gameplaying.
+// Its inputs are a class CardPool, a double, an array of Player and an integer. It has no output.
 
 int main()
 {
@@ -215,7 +224,7 @@ void OutputSummary(Player p[], CardPool cardpool, int turn)
 	else
 	{
 		summary << endl << "Remained cards in the cardpool:" << endl << endl;
-		summary << setw(8) << "Cardpool" << ": " << cardpool.Display() << endl;
+		summary << setw(8) << "Cardpool" << ": " << cardpool.Archive() << endl;
 		summary << endl << "Winner: ";
 		cout << endl << "Winner: ";
 		if (p[0].cardset.NoHidden())
